@@ -2,8 +2,8 @@ const Developer = require('../model/Developer');
 
 module.exports = {
   async store (request, response) {
-    const { developerId } = request.params;
     const { user } = request.headers;
+    const { developerId } = request.params;
 
     const loggedDeveloper = await Developer.findById(user);
     const targetDeveloper = await Developer.findById(developerId);
@@ -13,7 +13,17 @@ module.exports = {
     }
 
     if (targetDeveloper.likes.includes(loggedDeveloper._id)) {
-      console.log('DEU MATCH!');
+      console.log('MATCH')
+      const loggedSocket = request.connectedUsers[user];
+      const targetSocket = request.connectedUsers[developerId];
+
+      if(loggedSocket) {
+        request.io.to(loggedSocket).emit('match', targetDeveloper)
+      }
+
+      if(targetSocket) {
+        request.io.to(targetSocket).emit('match', loggedDeveloper)
+      }
     }
 
     loggedDeveloper.likes.push(targetDeveloper._id);
