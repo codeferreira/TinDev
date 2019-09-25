@@ -17,11 +17,43 @@ TinDev is a Tinder clone made by developers to developers. It's a way to find ot
 
 To use this repo you will need `nodejs@10.*` installed in yout machine.
 
+First of all, clone the repository. 
+
+```bash
+git clone https://github.com/JKFher/TinDev.git
+```
+
 ### Backend
+
+1. Enter into the backend folder. `cd backend`.
+2. Install all the dependencies. `yarn` or `npm i`.
+3. Change the Mongoose connection URL into the `routes.js` file.
+  ```javascript
+  mongoose.connect(URL_CONNECTION, 
+    {
+      useNewUrlParser: true
+    }
+  );
+  ```
+4. Start the application. `yarn dev` or `npm run dev`.
+5. Have fun!
 
 ### Frontend
 
+1. Enter into the frontend folder. `cd frontend`.
+2. Install all the dependencies. `yarn` or `npm i`.
+3. Start the application. `yarn start` or `npm run start`.
+4. Have fun!
+
 ### Mobile
+
+1. Enter into the frontend folder. `cd frontend`.
+2. Install all the dependencies. `yarn` or `npm i`.
+3. Make sure that you have everything to run [React Native](https://facebook.github.io/react-native/docs/0.60/getting-started) Applications. 
+4. Start the application. `react-native run-android`.
+5. LINUX/OSX - Start the node server. `react-native start`
+6. Have fun!
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
