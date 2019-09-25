@@ -16,7 +16,7 @@ io.on('connection', socket => {
   console.log(connectedUsers)
 })
 
-mongoose.connect('mongodb://omnistack:123#mudar@ds261277.mlab.com:61277/omnistack08', {
+mongoose.connect('', {
   useNewUrlParser: true
 });
 
